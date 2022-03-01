@@ -3,7 +3,7 @@
 kubectl config use-context cluster0
 KUBE_EDITOR="sed -i s/metricsBindAddress:.*/metricsBindAddress:\ "0.0.0.0:10249"/g" kubectl edit cm/kube-proxy -n kube-system
 kubectl delete pod -l k8s-app=kube-proxy -n kube-system
-sleep 10
+sleep 5
 # Deploy Prometheus Federation on Cluster 0
 kubectl config use-context cluster0
 kubectl create ns monitoring
@@ -15,7 +15,7 @@ helm install --version 33.1.0 prometheus-community/kube-prometheus-stack --gener
 #mv kubefedctl /usr/local/bin/
 
 # Add helm chart
-sleep 30
+sleep 3
 kubectl config use-context cluster0
 helm repo add kubefed-charts https://raw.githubusercontent.com/kubernetes-sigs/kubefed/master/charts
 helm repo update
