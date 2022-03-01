@@ -22,11 +22,11 @@ spec:
           image: docker.io/library/nginx                                               
           resources:                                                                                     
             requests:                                                                                    
-              memory: 1024Mi                                                                             
-              cpu: 1000m                                                                                 
+              memory: 102Mi                                                                             
+              cpu: 100m                                                                                 
             limits:                                                                                      
-              memory: 1024Mi                                                                             
-              cpu: 1000m                                                                                 
+              memory: 102Mi                                                                             
+              cpu: 100m                                                                                 
           ports:                                                                                         
             - name: http                                                                                 
               containerPort: 80

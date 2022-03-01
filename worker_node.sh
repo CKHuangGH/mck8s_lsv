@@ -3,6 +3,8 @@ min=$1
 max=$2
 j=$3
 #modify the address for kubeproxy
+mv /root/mck8s_lsv/metrics_server.yaml /root/
+
 for i in `seq $min $max`
 do
 kubectl config use-context cluster$i
@@ -15,7 +17,7 @@ for i in `seq $min $max`
 do
 kubectl config use-context cluster$i
 kubectl create ns monitoring
-helm install --version 30.1.0 prometheus-community/kube-prometheus-stack --generate-name --set grafana.service.type=NodePort --set grafana.service.nodePort=30099 --set prometheus.service.type=NodePort --set prometheus.prometheusSpec.scrapeInterval="5s" --namespace monitoring --values /root/mck8s_lsv/values_worker.yaml
+helm install --version 33.1.0 prometheus-community/kube-prometheus-stack --generate-name --set grafana.service.type=NodePort --set grafana.service.nodePort=30099 --set prometheus.service.type=NodePort --set prometheus.prometheusSpec.scrapeInterval="5s" --namespace monitoring --values /root/mck8s_lsv/values_worker.yaml
 echo "wait for 5 secs"
 sleep 5
 done
