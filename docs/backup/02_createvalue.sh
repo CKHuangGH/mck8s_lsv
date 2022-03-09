@@ -17,7 +17,16 @@ do
 			echo "        scheme: http" >> values.yaml
 			echo "        params:" >> values.yaml
 			echo "          match[]:" >> values.yaml
+			echo "            - '{__name__=~\"job:.*\"}'" >> values.yaml
+			echo "            - '{job=\"prometheus\"}'" >> values.yaml
+			echo "            - '{job=\"kubernetes-nodes\"}'" >> values.yaml
+			echo "            - '{job=\"kubernetes-cadvisor\"}'" >> values.yaml
 			echo "            - '{name=~\".+\"}'" >> values.yaml
+			echo "            - '{job=\"kubernetes-service-endpoints\"}'" >> values.yaml
+			echo "            - '{job=\"kubernetes-pods\"}'" >> values.yaml
+			echo "            - '{job=\"kubernetes-apiservers\"}'" >> values.yaml
+			echo "            - '{pod_name=\".+\"}'" >> values.yaml
+			echo "            - '{namespace=\"global\"}'" >> values.yaml
 			echo "            - '{job=\"node-exporter\"}'" >> values.yaml			
 			echo "        tls_config:" >> values.yaml	
 			echo "          insecure_skip_verify: true" >> values.yaml		
