@@ -17,8 +17,7 @@ do
 			echo "        scheme: http" >> values.yaml
 			echo "        params:" >> values.yaml
 			echo "          match[]:" >> values.yaml
-			echo "            - '{name=~\".+\"}'" >> values.yaml
-			echo "            - '{job=\"node-exporter\"}'" >> values.yaml			
+			echo "            - '{job=~\".+\"}'" >> values.yaml
 			echo "        tls_config:" >> values.yaml	
 			echo "          insecure_skip_verify: true" >> values.yaml		
 			echo "        static_configs:" >> values.yaml	
