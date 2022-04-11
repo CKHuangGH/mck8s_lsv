@@ -17,7 +17,7 @@ done
 for i in $(cat node_list)
 do
 	ssh-keyscan $i >> /root/.ssh/known_hosts
-	scp /root/.kube/config root@$i:/root/.kube
+	#scp /root/.kube/config root@$i:/root/.kube
 done
 
 echo "Finish"
