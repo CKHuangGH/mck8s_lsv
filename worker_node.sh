@@ -10,6 +10,7 @@ do
 kubectl config use-context cluster$i
 KUBE_EDITOR="sed -i s/metricsBindAddress:.*/metricsBindAddress:\ "0.0.0.0:10249"/g" kubectl edit cm/kube-proxy -n kube-system
 kubectl delete pod -l k8s-app=kube-proxy -n kube-system
+docker cp /root/.kube/config cluster$i-control-plane:/root/.kube
 done
 
 #Deploy Prometheus on member clusters
