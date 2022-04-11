@@ -18,6 +18,8 @@ nodes:
     hostPort: 6501
   - containerPort: 30099
     hostPort: 7501
+  - containerPort: 9091
+    hostPort: 8501
 - role: worker
   kubeadmConfigPatches:
   - |
