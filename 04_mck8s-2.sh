@@ -1,6 +1,7 @@
 #!/bin/bash 
 
 kubectl config use-context cluster0
+kubectl label nodes cluster0-control-plane node=master
 KUBE_EDITOR="sed -i s/metricsBindAddress:.*/metricsBindAddress:\ "0.0.0.0:10249"/g" kubectl edit cm/kube-proxy -n kube-system
 kubectl delete pod -l k8s-app=kube-proxy -n kube-system
 sleep 5
