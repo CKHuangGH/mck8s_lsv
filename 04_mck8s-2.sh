@@ -4,6 +4,7 @@ kubectl config use-context cluster0
 kubectl label nodes cluster0-control-plane node=master
 KUBE_EDITOR="sed -i s/metricsBindAddress:.*/metricsBindAddress:\ "0.0.0.0:10249"/g" kubectl edit cm/kube-proxy -n kube-system
 kubectl delete pod -l k8s-app=kube-proxy -n kube-system
+docker cp /root/.kube/config cluster0-control-plane:/root/.kube
 sleep 5
 # Deploy Prometheus Federation on Cluster 0
 kubectl config use-context cluster0
