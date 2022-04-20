@@ -2,7 +2,7 @@ for i in $(cat node_list)
 do
 		echo "$i write the IP address and Port to member"
         ssh root@$i docker ps --format "{{.Ports}}{{.Names}}" |grep control| cut -f 1 -d ":" > address
-        ssh root@$i docker ps --format "{{.Ports}}{{.Names}}" |grep control| cut -f 3 -d ":" | cut -f 1 -d "-" > port
+        ssh root@$i docker ps --format "{{.Ports}}{{.Names}}" |grep control| cut -f 5 -d ":" | cut -f 1 -d "-" > port
         ssh root@$i docker ps --format "{{.Names}}" | grep control | cut -f 1 -d "-" > cluster_name
         j=1
         y=1
