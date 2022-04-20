@@ -13,4 +13,4 @@ echo "          insecure_skip_verify: true" >> values.yaml
 echo "        static_configs:" >> values.yaml	
 echo "          - targets: [$i:$port]" >> values.yaml
 echo "            labels:" >> values.yaml
-echo "              cluster_name: rntsm" >> values.yaml						
+echo "              cluster_name: rntsm" >> values.yaml

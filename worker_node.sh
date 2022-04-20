@@ -23,12 +23,13 @@ helm install --version 33.1.0 prometheus-community/kube-prometheus-stack --gener
 echo "wait for 5 secs"
 sleep 5
 done
-#--set grafana.service.targetPort=30099
+
 #Deploy metrics server
 #wget https://gist.githubusercontent.com/moule3053/1b14b7898fd473b4196bdccab6cc7b48/raw/916f4362bcde612d0f96af48bc7ef7b99ab06a1f/metrics_server.yaml
 for i in `seq $min $max`
 do
     kubectl --context=cluster$i create -f metrics_server.yaml
+    kubectl --context=cluster$i apply -f /root/rntsm/arch02/member/deploy_member.yaml
 	sleep 2
 done
 
