@@ -13,9 +13,9 @@ kubectl create ns monitoring
 helm install --version 33.1.0 prometheus-community/kube-prometheus-stack --generate-name --set grafana.service.type=NodePort --set grafana.service.nodePort=30099 --set prometheus.service.type=NodePort --set prometheus.prometheusSpec.scrapeInterval="5s" --namespace monitoring --set prometheus.server.extraFlags="web.enable-lifecycle" --values values.yaml
 
 # Install kubefedctl
-#wget --tries=0 https://github.com/kubernetes-sigs/kubefed/releases/download/v0.9.0/kubefedctl-0.9.0-linux-amd64.tgz
-#tar xzvf kubefedctl-0.9.0-linux-amd64.tgz
-#mv kubefedctl /usr/local/bin/
+wget --tries=0 https://github.com/kubernetes-sigs/kubefed/releases/download/v0.9.1/kubefedctl-0.9.1-linux-amd64.tgz
+tar xzvf kubefedctl-0.9.1-linux-amd64.tgz
+mv kubefedctl /usr/local/bin/
 
 # Add helm chart
 sleep 3
