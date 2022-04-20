@@ -15,3 +15,4 @@ do
             y=$((y+1))
         done
 done
+mv member /root/member
