@@ -27,7 +27,7 @@ nodes:
       local:
         extraArgs:
           listen-metrics-urls: http://0.0.0.0:2381
-  image: kindest/node:v1.23.6
+  image: kindest/node:v1.23.5
 networking:
   disableDefaultCNI: true
   podSubnet: "10.8.0.0/16"
