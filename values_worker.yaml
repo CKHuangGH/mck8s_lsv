@@ -5,4 +5,8 @@ kubeEtcd:
 prometheus:
   prometheusSpec:
     nodeSelector:
-      kubernetes.io/role: master
+      node-role.kubernetes.io/master: ""
+    tolerations:
+    - key: "node-role.kubernetes.io/master"
+      operator: "Equal"
+      effect: "NoSchedule"

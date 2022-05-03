@@ -4,4 +4,10 @@ kubeEtcd:
     targetPort: 2381
 prometheus:
   prometheusSpec:
+    nodeSelector:
+      node-role.kubernetes.io/master: ""
+    tolerations:
+    - key: "node-role.kubernetes.io/master"
+      operator: "Equal"
+      effect: "NoSchedule"
     additionalScrapeConfigs:
